@@ -1,45 +1,109 @@
 # API Health & Performance Monitor
 
-A lightweight full-stack dashboard for monitoring API health, response time, status codes, and recent performance history.
+A full-stack web application for monitoring REST APIs and visualizing their health and performance through a centralized dashboard.
 
-## Tech Stack
-- React.js + Vite
-- Node.js
-- Express.js
-- REST APIs
-- JavaScript
+## Overview
+
+The API Health & Performance Monitor allows users to monitor API endpoints and view important performance information such as response status, response time, and API availability from a single dashboard.
 
 ## Features
-- Monitor configurable API endpoints
-- Automated health checks
-- Configurable slow-response threshold
-- Status, response time, and status code display
-- Recent response-time history
-- Add/remove monitored endpoints
-- Auto-refresh monitoring
-- Built-in demo APIs so the project works without external services
 
-## Run locally
+* Monitor REST API endpoints
+* Check API health and availability
+* Track API response times
+* Identify failed or unavailable APIs
+* Centralized monitoring dashboard
+* Real-time API status checking
+* Responsive web interface
+
+## Tech Stack
+
+### Frontend
+
+* React.js
+* JavaScript
+* Vite
+* CSS
 
 ### Backend
+
+* Node.js
+* Express.js
+* REST APIs
+
+## Project Structure
+
+```text
+APIHealthPerformanceMonitor/
+│
+├── client/
+│   ├── src/
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
+│
+├── server/
+│   ├── server.js
+│   ├── package.json
+│   └── package-lock.json
+│
+├── .gitignore
+└── README.md
+```
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have Node.js and npm installed.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/anishWkx/APIHealthPerformanceMonitor.git
+cd APIHealthPerformanceMonitor
+```
+
+### 2. Start the backend
+
 ```bash
 cd server
 npm install
-npm run dev
+node server.js
 ```
 
-Backend runs on `http://localhost:5000`.
+The backend runs on:
 
-### Frontend
-Open a second terminal:
+```text
+http://localhost:5001
+```
+
+### 3. Start the frontend
+
+Open another terminal:
+
 ```bash
 cd client
 npm install
 npm run dev
 ```
 
-Frontend runs on the Vite URL shown in the terminal, normally `http://localhost:5173`.
+The frontend runs on:
 
-## Interview explanation
+```text
+http://localhost:5173
+```
 
-"The project is a React and Node.js dashboard that periodically calls configured APIs and records their health, response time, and status code. The Express backend performs the health checks and keeps a small in-memory history for the dashboard. I also added configurable thresholds so an endpoint can be classified as healthy, slow, or down."
+Open the frontend URL in your browser to access the dashboard.
+
+## Future Improvements
+
+* Historical performance tracking
+* API response-time charts
+* Database integration for storing monitoring history
+* Automated alerts for API failures
+* Authentication and role-based access
+
+## Author
+
+Anish Bhaktula
