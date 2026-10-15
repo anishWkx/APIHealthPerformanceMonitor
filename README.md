@@ -1,109 +1,104 @@
 # API Health & Performance Monitor
 
-A full-stack web application for monitoring REST APIs and visualizing their health and performance through a centralized dashboard.
+I built this project to monitor APIs and understand how they perform in real time. It provides a dashboard where I can check whether an API is working, measure its response time, track uptime statistics, and view recent performance history.
 
-## Overview
+The main goal of this project was to build a practical full-stack application using React and Node.js while learning how API monitoring works.
 
-The API Health & Performance Monitor allows users to monitor API endpoints and view important performance information such as response status, response time, and API availability from a single dashboard.
+## What it does
 
-## Features
+- Checks whether an API is working or unavailable.
+- Measures API response times and identifies slow endpoints.
+- Tracks successful and failed checks and calculates uptime percentages.
+- Displays recent response-time history in a chart.
+- Shows alerts when an API goes down.
+- Allows users to add and remove API endpoints.
+- Automatically refreshes monitoring results every 15 seconds.
 
-* Monitor REST API endpoints
-* Check API health and availability
-* Track API response times
-* Identify failed or unavailable APIs
-* Centralized monitoring dashboard
-* Real-time API status checking
-* Responsive web interface
+## Technologies used
 
-## Tech Stack
+- **Frontend:** React, JavaScript, Vite, CSS
+- **Backend:** Node.js, Express.js
+- **Charts:** Recharts
+- **Other tools:** Git and GitHub
 
-### Frontend
+## Project structure
 
-* React.js
-* JavaScript
-* Vite
-* CSS
-
-### Backend
-
-* Node.js
-* Express.js
-* REST APIs
-
-## Project Structure
-
-```text
+```text id="4qj8dv"
 APIHealthPerformanceMonitor/
-│
-├── client/
-│   ├── src/
-│   ├── index.html
-│   ├── package.json
-│   └── vite.config.js
-│
-├── server/
-│   ├── server.js
-│   ├── package.json
-│   └── package-lock.json
-│
-├── .gitignore
+├── client/       # React frontend
+├── server/       # Express backend
 └── README.md
 ```
 
-## Getting Started
+## How to run the project
 
 ### Prerequisites
 
-Make sure you have Node.js and npm installed.
+Make sure Node.js and npm are installed on your system.
 
 ### 1. Clone the repository
 
-```bash
+```bash id="qz8x2d"
 git clone https://github.com/anishWkx/APIHealthPerformanceMonitor.git
 cd APIHealthPerformanceMonitor
 ```
 
 ### 2. Start the backend
 
-```bash
+Open a terminal and run:
+
+```bash id="m5z1cw"
 cd server
 npm install
-node server.js
+npm run dev
 ```
 
-The backend runs on:
-
-```text
-http://localhost:5001
-```
+The backend runs on `http://localhost:5001`.
 
 ### 3. Start the frontend
 
-Open another terminal:
+Open another terminal from the project folder and run:
 
-```bash
+```bash id="b9k4xw"
 cd client
 npm install
 npm run dev
 ```
 
-The frontend runs on:
+Open the local URL shown in the terminal, usually `http://localhost:5173`.
 
-```text
-http://localhost:5173
-```
+Keep both the frontend and backend running while using the application.
 
-Open the frontend URL in your browser to access the dashboard.
+## How API status is determined
 
-## Future Improvements
+- **Healthy:** The API responds successfully within the configured time limit.
+- **Slow:** The API responds successfully but takes longer than the configured threshold.
+- **Down:** The request fails, times out, or returns an unsuccessful HTTP status.
 
-* Historical performance tracking
-* API response-time charts
-* Database integration for storing monitoring history
-* Automated alerts for API failures
-* Authentication and role-based access
+## API routes
+
+| Method | Route | Purpose |
+|---|---|---|
+| GET | `/api/endpoints` | Get the configured endpoints |
+| GET | `/api/monitor` | Run API health checks |
+| GET | `/api/uptime` | Get uptime statistics |
+| GET | `/api/history/:id` | View recent check history |
+| POST | `/api/endpoints` | Add an endpoint |
+| DELETE | `/api/endpoints/:id` | Remove an endpoint |
+
+## Things to know
+
+Currently, monitoring history and uptime statistics are stored in memory, so they reset whenever the backend restarts. The uptime percentage is calculated from checks recorded during the current backend session.
+
+The frontend and backend are configured for local development. A few URL and environment settings need to be updated before deploying the application publicly.
+
+## Future improvements
+
+I would like to add database storage for monitoring history, longer-term uptime reports, and more notification options for API failures.
 
 ## Author
 
-Anish Bhaktula
+**Anish Bhaktula**
+
+- GitHub: https://github.com/anishWkx
+- LinkedIn: https://www.linkedin.com/in/anish-bhaktula-b3b307286/
