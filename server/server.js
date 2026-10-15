@@ -2,7 +2,8 @@ import express from "express";
 import cors from "cors";
 
 const app = express();
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
+const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
 const REQUEST_TIMEOUT_MS = 5000;
 const MAX_HISTORY = 12;
 
@@ -13,19 +14,19 @@ const endpoints = [
   {
     id: 1,
     name: "Fast Demo API",
-    url: `http://localhost:${PORT}/api/demo/fast`,
+    url: `${BASE_URL}/api/demo/fast`,
     threshold: 500,
   },
   {
     id: 2,
     name: "Slow Demo API",
-    url: `http://localhost:${PORT}/api/demo/slow`,
+    url: `${BASE_URL}/api/demo/slow`,
     threshold: 800,
   },
   {
     id: 3,
     name: "Status API",
-    url: `http://localhost:${PORT}/api/demo/status`,
+    url: `${BASE_URL}/api/demo/status`,
     threshold: 500,
   },
 ];

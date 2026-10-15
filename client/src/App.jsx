@@ -12,7 +12,7 @@ import {
 } from "recharts";
 import "./styles.css";
 
-const API = "http://localhost:5001";
+const API = import.meta.env.VITE_API_URL || "http://localhost:5001";
 
 async function requestJSON(url, options = {}) {
   const response = await fetch(url, options);
